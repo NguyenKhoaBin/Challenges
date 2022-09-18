@@ -13,8 +13,6 @@ function App() {
     <>
       <AuthProvider>
         <Routes>
-          <Route path="/sign-up" element={<SignUpPage></SignUpPage>}></Route>
-          <Route path="/sign-in" element={<SignInPage></SignInPage>}></Route>
           <Route path="/" element={<HomePages></HomePages>}>
             <Route
               path="/add-new"
@@ -25,6 +23,8 @@ function App() {
               element={<Challenges></Challenges>}
             ></Route>
           </Route>
+          <Route path="/sign-up" element={<SignUpPage></SignUpPage>}></Route>
+          <Route path="/sign-in" element={<SignInPage></SignInPage>}></Route>
         </Routes>
         <ToastContainer />
       </AuthProvider>
