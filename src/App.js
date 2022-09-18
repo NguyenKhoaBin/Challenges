@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import SignUpPage from "./Login/SignUpPage";
+import SignInPage from "./Login/SignInPage";
+import HomePages from "./Pages/HomePages";
+import { AuthProvider } from "./Context/authContext";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import Challenges from "./Layout/Challenges";
+import AddVocabulary from "./Layout/AddVocabulary";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AuthProvider>
+        <Routes>
+          <Route path="/sign-up" element={<SignUpPage></SignUpPage>}></Route>
+          <Route path="/sign-in" element={<SignInPage></SignInPage>}></Route>
+          <Route path="/" element={<HomePages></HomePages>}>
+            <Route
+              path="/add-new"
+              element={<AddVocabulary></AddVocabulary>}
+            ></Route>
+            <Route
+              path="/challenges"
+              element={<Challenges></Challenges>}
+            ></Route>
+          </Route>
+        </Routes>
+        <ToastContainer />
+      </AuthProvider>
+    </>
   );
 }
 
