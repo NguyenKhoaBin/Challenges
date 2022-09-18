@@ -1,7 +1,6 @@
 {
   "name": "learn-english",
   "version": "0.1.0",
-  "homepage": "https://nguyenkhoabin.github.io/ChallengesEnglish",
   "private": true,
   "dependencies": {
     "@hookform/resolvers": "^2.9.8",
@@ -26,8 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-     "deploy": "gh-pages -d build"
+    "predeploy": "react-scripts build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

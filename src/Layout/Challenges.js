@@ -18,7 +18,7 @@ const schema = yup.object({
 
 document.title = "Challenges";
 const Challenges = () => {
-  const { userInfo } = useAuth();
+  const { userInfo } = useAuth({});
   const [uidCurr, setUidCurr] = useState("");
   const [score, setScore] = useState(0);
   const [meaning, setMeaning] = useState("");
@@ -46,7 +46,9 @@ const Challenges = () => {
 
   const handleSubmitMeaning = async (values) => {
     setTotalQuestion(totalQuestion + 1);
-    if (values.meaning === meaning) {
+    console.log(meaning);
+    console.log(values.meaning.toLowerCase());
+    if (values.meaning.toLowerCase() === meaning) {
       setScore(score + 1);
       toast.success(`${values.meaning} is the correct answer`);
       reset({
@@ -55,6 +57,9 @@ const Challenges = () => {
       return;
     }
     toast.warning(`${values.meaning} is the incorrect answer`);
+    reset({
+      meaning: "",
+    });
   };
 
   useEffect(() => {
